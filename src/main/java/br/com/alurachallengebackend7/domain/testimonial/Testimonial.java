@@ -1,5 +1,7 @@
 package br.com.alurachallengebackend7.domain.testimonial;
 
+import br.com.alurachallengebackend7.domain.testimonial.dto.DataUpdateTestimonial;
+import br.com.alurachallengebackend7.domain.testimonial.dto.TestimonialData;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -17,18 +19,18 @@ public class Testimonial {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String picture;
-    private String testmonial;
+    private String testimonial;
     private String name;
     private boolean active;
 
     public Testimonial(TestimonialData data) {
         this.name = data.name();
         this.picture = data.picture();
-        this.testmonial = data.testimonial();
+        this.testimonial = data.testimonial();
         this.active=true;
     }
 
-    public void updateTheInfomation(DataUpdateTestimonial data) {
+    public void updateInfomation(DataUpdateTestimonial data) {
 
         if(data.name() != null){
             this.name = data.name();
@@ -37,7 +39,7 @@ public class Testimonial {
             this.picture = data.picture();
         }
         if (data.testimonial() != null){
-            this.testmonial = data.testimonial();
+            this.testimonial = data.testimonial();
         }
     }
 

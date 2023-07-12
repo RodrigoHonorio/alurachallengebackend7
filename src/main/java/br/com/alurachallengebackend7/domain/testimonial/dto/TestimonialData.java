@@ -1,4 +1,4 @@
-package br.com.alurachallengebackend7.domain.testimonial;
+package br.com.alurachallengebackend7.domain.testimonial.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
