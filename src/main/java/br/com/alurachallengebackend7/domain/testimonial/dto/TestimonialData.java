@@ -8,8 +8,9 @@ public record TestimonialData(
         @NotBlank
         String name,
         @NotNull
-        String testimonial,
+        String picture,
         @NotNull
-        String picture
+        String testimonial
+
 
 ){}
