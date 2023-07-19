@@ -1,4 +1,4 @@
-package br.com.alurachallengebackend7.domain;
+package br.com.alurachallengebackend7.infra.exception;
 
 public class ValidationException extends RuntimeException{
     public ValidationException(String message) {

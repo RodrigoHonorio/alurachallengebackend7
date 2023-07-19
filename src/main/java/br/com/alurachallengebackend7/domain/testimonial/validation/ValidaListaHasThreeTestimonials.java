@@ -1,6 +1,6 @@
 package br.com.alurachallengebackend7.domain.testimonial.validation;
 
-import br.com.alurachallengebackend7.domain.ValidationException;
+import br.com.alurachallengebackend7.infra.exception.ValidationException;
 import br.com.alurachallengebackend7.domain.testimonial.dto.DataListTestimonials;
 import org.springframework.stereotype.Component;
 
