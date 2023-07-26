@@ -3,10 +3,12 @@ package br.com.alurachallengebackend7.domain.testimonial.dto;
 import javax.validation.constraints.NotNull;
 
 public record DataUpdateDestination(
-        @NotNull
         Long id,
-        String picture,
+        String picture1,
+        String picture2,
         String name,
+        String meta,
+        String descriptiveText,
         Double price
 ) {
 }

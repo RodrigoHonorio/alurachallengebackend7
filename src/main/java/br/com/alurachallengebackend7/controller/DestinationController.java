@@ -8,6 +8,8 @@ import br.com.alurachallengebackend7.domain.destination.dto.DestinationData;
 
 import br.com.alurachallengebackend7.domain.testimonial.dto.DataUpdateDestination;
 
+import br.com.alurachallengebackend7.domain.textGenerator.TextGenerator;
+import org.hibernate.service.spi.InjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -28,11 +30,18 @@ public class DestinationController {
 
     @Autowired
     private DestinationRepository repository;
+    @Autowired
+    private TextGenerator text;
+
+
 
     @PostMapping
     @Transactional
     public ResponseEntity create(@RequestBody @Valid DestinationData data, UriComponentsBuilder uriBuilder) {
         var destination = new Destination(data);
+        if(data.descriptiveText()==null){
+            destination.setDescriptiveText(text.generateText(data.name()));
+        }
         repository.save(destination);
         var uri = uriBuilder.path("/destination/{id}").buildAndExpand(destination.getId()).toUri();
         return ResponseEntity.created(uri).body(new DataDetailDestination(destination));
